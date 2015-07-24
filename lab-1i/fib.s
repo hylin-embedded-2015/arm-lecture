@@ -1,26 +1,26 @@
-	.syntax unified
-	.arch armv7-a
-	.text
-	.align 2
-	.thumb
-	.thumb_func
+    .syntax unified
+    .arch armv7-a
+    .text
+    .align 2
+    .thumb
+    .thumb_func
 
-	.global fibonacci
-	.type fibonacci, function
+    .global fibonacci
+    .type fibonacci, function
 
 fibonacci:
-	@ ADD/MODIFY CODE BELOW
-	@ PROLOG
-	push {r3, r4, r5, lr}
+    @ ADD/MODIFY CODE BELOW
+    @ PROLOG
+    push {r3, r4, r5, lr}
 
-	@ R4 = R0 - 0 (update flags)
+    @ R4 = R0 - 0 (update flags)
     sub r4, r0, #0
 
-	@ if(r4 == 0) goto .L3 (which returns 0)
+    @ if(r4 == 0) goto .L3 (which returns 0)
     cmp r4, #0
     ble .L3
 
-	@ if(r4 == 1) goto .L4 (which returns 0)
+    @ if(r4 == 1) goto .L4 (which returns 0)
     cmp r4, #1
     ble .L4
 
@@ -56,17 +56,17 @@ fibonacci:
     
     ;
     ; @ R0 = R5 + R0 (update flags)
-	; add r0, r5, r0
+    ; add r0, r5, r0
 
-	pop {r3, r4, r5, pc}		@EPILOG
+    pop {r3, r4, r5, pc}        @EPILOG
 
 .L3:
-	mov r0, #0
-	pop {r3, r4, r5, pc}		@ EPILOG
+    mov r0, #0
+    pop {r3, r4, r5, pc}        @ EPILOG
 
 .L4:
-	mov r0, #1
-	pop {r3, r4, r5, pc}		@ EPILOG
+    mov r0, #1
+    pop {r3, r4, r5, pc}        @ EPILOG
 
     .size fibonacci, .-fibonacci
-	.end
+    .end
