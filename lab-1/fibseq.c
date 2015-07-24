@@ -5,8 +5,9 @@ extern int fibonacci(int x);
 
 int main(int argc, char **argv)
 {
-    int number=0;
-    int result=0;
+    int number = 0;
+    int result = 0;
+    int i = 0;
     
     clock_t begin, end;
     double time_spent;
@@ -14,7 +15,9 @@ int main(int argc, char **argv)
     scanf("%d", &number);
     
     begin = clock();
-    result = fibonacci(number);   
+    for(i = 0; i < 1000; i++){
+        result = fibonacci(number);
+    }
     end = clock();
     
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
