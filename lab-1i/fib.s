@@ -56,7 +56,7 @@ fibonacci:
     
     ;
     ; @ R0 = R5 + R0 (update flags)
-    ; add r0, r5, r0
+    add r0, r0, #0
 
     pop {r3, r4, r5, pc}        @EPILOG
 
